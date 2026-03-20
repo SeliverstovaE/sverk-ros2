@@ -1,0 +1,17 @@
+# Flip axis: roll, pitch, or yaw (in the drone body)
+string axis
+# Z-axis upspeeding (local axis), m/s. For example, 1.0
+float32 vz
+# Ascent phase duration (velocity), sec
+float32 climb_duration
+# Angular velocity along the selected axis, rad/s (the sign specifies the flip direction)
+float32 rate
+# Target rotation angle, rad (e.g., 6.28 ≈ 2π for a full rotation; you can use 6.0 to stop a little earlier)
+float32 target_angle
+# Thrust during the phase (0.0–1.0), to maintain altitude
+float32 thrust
+# If true, automatically switch to the off state and set before the flip
+bool auto_arm
+---
+bool success
+string message

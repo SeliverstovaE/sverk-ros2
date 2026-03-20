@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>self_check</name>
+  <version>0.0.1</version>
+  <description>ROS 2 drone selfcheck script (PX4 + MAVROS2 + ArUco).</description>
+
+  <maintainer email="petayyyymail@gmail.com">Your Name</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>diagnostic_msgs</exec_depend>
+  <exec_depend>px4_msgs</exec_depend>
+
+  <!-- MAVROS2 messages/services -->
+  <exec_depend>mavros_msgs</exec_depend>
+
+  <!-- If you use std_srvs or other interfaces later, add them here -->
+  <!-- <exec_depend>std_srvs</exec_depend> -->
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,7 @@
+string map_file
+---
+bool success
+string message
+string active_map_file
+uint32 marker_count
+uint32 plane_count

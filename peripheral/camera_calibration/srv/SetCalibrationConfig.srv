@@ -1,0 +1,12 @@
+string board_type
+string camera_model
+int32 board_width
+int32 board_height
+float32 square_size
+float32 marker_size
+string aruco_dict
+int32 min_frames
+bool save_captures
+---
+bool success
+string message

@@ -1,0 +1,62 @@
+# led_control — node parameters and event visualization for PX4 topics
+# Documentation: https://docs.px4.io/main/en/ros2/user_guide  
+# PX4 topics: https://docs.px4.io/main/en/middleware/dds_topics  
+
+led_node:
+  ros__parameters:
+    # --- LED strip and SPI ---
+    # For a wide frame 112 LEDs, for a standard frame 104
+    led_count: 112
+    spi_bus: 1
+    spi_device: 0
+    # LED strip brightness 0–100 % (rpi5-ws2812 library: set_brightness(0.0–1.0))
+    # Default normal brightness when battery voltage is above the safe threshold.
+    brightness: 30.0
+    brightness_low_battery: 1.0
+    
+    state_publish_rate: 10.0
+    animation_rate: 30.0
+
+    # --- Enable visualization of events from PX4 topics ---
+    led_notify: true
+
+    # PX4 topics (uXRCE-DDS): default prefix for FMU publications
+    fmu_out_prefix: "/fmu/out"
+    fmu_in_prefix: "/fmu/in"
+
+    # Timeout for loss of connection with flight controller (sec) → disconnected event
+    vehicle_status_timeout: 2.0
+
+    # Battery (BatteryStatus): low_battery indication based on voltage per cell (voltage_v / cell_count).
+    # If voltage per cell is below this threshold (V) — the low_battery event is triggered. The event is ignored if data is invalid.
+    battery_min_voltage_per_cell: 3.5
+
+    battery_min_voltage: 6.0
+
+    # Event effects table: key — event name, value — { effect?: string, r, g, b } (effect defaults to fill).
+    # For any event, you can specify effect: none — then it is disabled, nothing is assigned or considered (full customization of the event set).
+    events: |
+      startup:        { r: 255, g: 255, b: 255 }
+      connected:      { effect: rainbow }
+      disconnected:   { effect: blink, r: 255, g: 50, b: 50 }
+      armed:          { effect: none }
+      disarmed:       { effect: none }
+      acro:           { r: 245, g: 155, b: 0 }
+      stabilized:     { r: 30, g: 180, b: 50 }
+      altctl:         { r: 255, g: 255, b: 40 }
+      posctl:         { r: 50, g: 100, b: 220 }
+      offboard:       { r: 220, g: 20, b: 250 }
+      mission:        { effect: none }
+      rtl:            { effect: none }
+      land:           { r: 255, g: 200, b: 0 }
+      orbit:          { effect: none }
+      takeoff:        { effect: none }
+      position_slow:  { effect: none }
+      altitude_cruise:{ effect: none }
+      descend:        { r: 255, g: 180, b: 100 }
+      termination:    { effect: blink, r: 255, g: 0, b: 0 }
+      follow_target:  { effect: none }
+      precland:       { r: 255, g: 228, b: 196 }
+      vtol_takeoff:   { effect: none }
+      error:          { effect: flash, r: 255, g: 0, b: 0 }
+      low_battery:    { threshold: 3.5, effect: blink_fast, r: 255, g: 0, b: 0 }

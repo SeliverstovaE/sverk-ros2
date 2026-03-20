@@ -1,0 +1,7 @@
+# High-level effect: fill, blink, blink_fast, fade, wipe, flash, rainbow, rainbow_fill (empty string = fill)
+string effect
+uint8 r
+uint8 g
+uint8 b
+---
+bool success

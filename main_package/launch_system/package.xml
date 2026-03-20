@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>launch_system</name>
+  <version>0.0.0</version>
+  <description>Launch files for the complete system</description>
+  <maintainer email="petayyyymail@gmail.com">Petayyy</maintainer>
+  <license>Apache License 2.0</license>
+
+  <!-- <buildtool_depend>ament_cmake</buildtool_depend> -->
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>aruco_det_loc</exec_depend>
+  <exec_depend>aruco_map</exec_depend>
+  <exec_depend>offboard_control</exec_depend>
+  <exec_depend>ros2launch</exec_depend>
+  
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch_xml</exec_depend>
+  <exec_depend>launch_yaml</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
