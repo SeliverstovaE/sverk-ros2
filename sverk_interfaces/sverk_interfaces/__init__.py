@@ -194,7 +194,7 @@ class OffboardControlAPI:
         auto_arm: Optional[bool] = None,
         timeout: Optional[float] = None,
     ) -> Navigate.Response:
-        """Fly to a waypoint (see offboard_control Readme: navigate service)."""
+        """Fly to a waypoint (see offboard_control README.md: navigate service)."""
         # Fill in defaults when arguments are omitted.
         if frame_id is None:
             frame_id = self.default_frame_id
@@ -440,7 +440,7 @@ class OffboardControlAPI:
         auto_arm: Optional[bool] = None,
         timeout: Optional[float] = None,
     ) -> Flip.Response:
-        """Flip around roll/pitch/yaw (see Readme: flip)."""
+        """Flip around roll/pitch/yaw (see README.md: flip)."""
 
         eff_axis = self.default_flip_axis if axis is None else str(axis)
         eff_vz = self.default_flip_vz if vz is None else float(vz)
@@ -524,7 +524,7 @@ class FmuCalibrationAPI:
         self.request_calibration(5)
 
 
-# LED effect names per led_control docs (ReadMe.md)
+# LED effect names per led_control docs (README.md)
 LED_EFFECTS = (
     "fill",
     "blink",

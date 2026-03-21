@@ -29,4 +29,4 @@ ros2 launch led_control led.launch.py
 
 Параметры в `src/led_control/config/led_params.yaml` (или свой файл через аргумент `config:=`).
 
-Документация: [docs/ReadMe.md](led_control/ReadMe.md).
+Документация: [led_control/README.md](led_control/README.md).

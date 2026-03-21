@@ -54,7 +54,7 @@
 - [launch_system](main_package/launch_system) — главные launch-файлы для различных сценариев:
   - Запуск всей системы на реальном дроне
   - Запуск в симуляторе с различными сенсорами (камера, камера глубины, лидар)
-- [self_check](main_package/self_check/Readme.md) — автоматическая проверка работоспособности всех компонентов системы
+- [self_check](main_package/self_check/README.md) — автоматическая проверка работоспособности всех компонентов системы
 
 ### Одометрия (`odometry`)
 
@@ -68,7 +68,7 @@
 
 ### Управление полётом (`offboard`)
 
-- [offboard_control](offboard/offboard_control/Readme.md) — основной пакет для автономного полёта:
+- [offboard_control](offboard/offboard_control/README.md) — основной пакет для автономного полёта:
   - Примеры скриптов на Python для offboard-полётов
   - Управление позицией, скоростью, ориентацией
 - [fmu_calibration_control](offboard/fmu_calibration_control/README.md) — управление полётным контроллером:
@@ -80,10 +80,10 @@
 
 - [camera_ros](peripheral/camera_ros/README.md) — получение изображений с камеры (подмодуль)
 - [camera_calibration](peripheral/camera_calibration/README.md) — калибровка камеры
-- [led](peripheral/led/led_control/ReadMe.md) — управление светодиодной лентой:
+- [led](peripheral/led/led_control/README.md) — управление светодиодной лентой:
   - Эффекты и цвет всей ленты
   - Управление отдельными светодиодами
-- [sensors_broadcaster](peripheral/sensors_broadcaster/Readme.md) — публикация данных с лазерных датчиков
+- [sensors_broadcaster](peripheral/sensors_broadcaster/README.md) — публикация данных с лазерных датчиков
 
 ### Интеграция с PX4 (`px4`)
 
@@ -91,6 +91,12 @@
 - [px4_msgs](px4/px4_msgs/README.md) — сообщения ROS2 для PX4
 - [px4_ros_com](px4/px4_ros_com/README.md) — мост между ROS2 и PX4
 - [Micro-XRCE-DDS-Agent](px4/Micro-XRCE-DDS-Agent/README.md) — агент для связи PX4 с ROS2 через DDS
+
+### Веб-интерфейсы (`web`)
+
+- [rosboard](web/rosboard/README.md) — веб-интерфейс для мониторинга ROS (подмодуль)
+- [blockly](web/blockly) — визуальное программирование через Blockly
+- [ros_services_bridge](web/ros_services_bridge/README.md) — мост для веб-сервисов ROS
 
 ### Высокоуровневый API (`sverk_interfaces`)
 
@@ -100,13 +106,6 @@ Python-библиотека для управления дроном через 
 - **`led_control`** — управление светодиодной лентой
 
 Подробнее см. [README пакета](sverk_interfaces/README.md).
-
-### Веб-интерфейсы (`web`)
-
-- [rosboard](web/rosboard/README.md) — веб-интерфейс для мониторинга ROS (подмодуль)
-- [blockly](web/blockly) — визуальное программирование через Blockly
-- [ros_services_bridge](web/ros_services_bridge/README.md) — мост для веб-сервисов ROS
-
 ## Документация
 
 Подробная документация находится в директории [docs/](docs/)
