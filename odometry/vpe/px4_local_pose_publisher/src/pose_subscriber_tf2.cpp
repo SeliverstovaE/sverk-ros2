@@ -411,21 +411,21 @@ void VpePublisher::processingLoop()
     }
 
     // RCLCPP_INFO_THROTTLE(
-    RCLCPP_DEBUG(
-      node_.get_logger(), *node_.get_clock(), 1000,
-      "vpe proc: frames world='%s' offset='%s' offset_init_before=%d offset_recompute=%d offset_timeout=%d offset_success=%d reset_counter=%u pos_ned=[%.3f %.3f %.3f] q_ned=[%.3f %.3f %.3f %.3f] offset_origin_ENU=[%.3f %.3f %.3f]",
-      world_frame_id_.c_str(), offset_frame_id_.c_str(),
-      static_cast<int>(offset_initialized_snapshot),
-      static_cast<int>(need_recompute_offset),
-      static_cast<int>(offset_timeout_triggered),
-      static_cast<int>(offset_compute_success),
-      static_cast<unsigned>(local_reset_counter),
-      static_cast<double>(pos_ned.x()), static_cast<double>(pos_ned.y()), static_cast<double>(pos_ned.z()),
-      static_cast<double>(eigen_quat_ned.w()), static_cast<double>(eigen_quat_ned.x()),
-      static_cast<double>(eigen_quat_ned.y()), static_cast<double>(eigen_quat_ned.z()),
-      static_cast<double>(offset_used.getOrigin().x()),
-      static_cast<double>(offset_used.getOrigin().y()),
-      static_cast<double>(offset_used.getOrigin().z()));
+    // RCLCPP_DEBUG(
+    //   node_.get_logger(), *node_.get_clock(), 1000,
+    //   "vpe proc: frames world='%s' offset='%s' offset_init_before=%d offset_recompute=%d offset_timeout=%d offset_success=%d reset_counter=%u pos_ned=[%.3f %.3f %.3f] q_ned=[%.3f %.3f %.3f %.3f] offset_origin_ENU=[%.3f %.3f %.3f]",
+    //   world_frame_id_.c_str(), offset_frame_id_.c_str(),
+    //   static_cast<int>(offset_initialized_snapshot),
+    //   static_cast<int>(need_recompute_offset),
+    //   static_cast<int>(offset_timeout_triggered),
+    //   static_cast<int>(offset_compute_success),
+    //   static_cast<unsigned>(local_reset_counter),
+    //   static_cast<double>(pos_ned.x()), static_cast<double>(pos_ned.y()), static_cast<double>(pos_ned.z()),
+    //   static_cast<double>(eigen_quat_ned.w()), static_cast<double>(eigen_quat_ned.x()),
+    //   static_cast<double>(eigen_quat_ned.y()), static_cast<double>(eigen_quat_ned.z()),
+    //   static_cast<double>(offset_used.getOrigin().x()),
+    //   static_cast<double>(offset_used.getOrigin().y()),
+    //   static_cast<double>(offset_used.getOrigin().z()));
   }
 }
 
@@ -586,15 +586,15 @@ void VpePublisher::timerCallback()
   // Timeout: no fresh data
   if (time_since_last_data > data_timeout_sec_ || !has_valid_data || !latest_pose_exists || !have_measurement) {
     // RCLCPP_INFO_THROTTLE(
-    RCLCPP_DEBUG(
-      node_.get_logger(), *node_.get_clock(), 1000,
-      "vpe timer->fallback: time_since_last_data=%.3f timeout=%.3f has_valid_data=%d latest_pose=%d have_measurement=%d offset_init=%d allow_send_vio=%d",
-      time_since_last_data, data_timeout_sec_,
-      static_cast<int>(has_valid_data),
-      static_cast<int>(latest_pose_exists),
-      static_cast<int>(have_measurement),
-      static_cast<int>(offset_initialized_snapshot),
-      static_cast<int>(allow_send_vio_));
+    // RCLCPP_DEBUG(
+    //   node_.get_logger(), *node_.get_clock(), 1000,
+    //   "vpe timer->fallback: time_since_last_data=%.3f timeout=%.3f has_valid_data=%d latest_pose=%d have_measurement=%d offset_init=%d allow_send_vio=%d",
+    //   time_since_last_data, data_timeout_sec_,
+    //   static_cast<int>(has_valid_data),
+    //   static_cast<int>(latest_pose_exists),
+    //   static_cast<int>(have_measurement),
+    //   static_cast<int>(offset_initialized_snapshot),
+    //   static_cast<int>(allow_send_vio_));
     sendFallbackData();
     return;
   }
@@ -611,22 +611,22 @@ void VpePublisher::timerCallback()
       const auto q = local_position_measurement.attitude_quaternion.value();
 
       // RCLCPP_INFO_THROTTLE(
-      RCLCPP_DEBUG(
-        node_.get_logger(), *node_.get_clock(), 1000,
-        "vpe timer->update: allow_send_vio=1 offset_init=%d reset_counter=%u pos_ned_xy=[%.3f %.3f] pos_ned_z=%.3f q_ned=[%.3f %.3f %.3f %.3f]",
-        static_cast<int>(offset_initialized_snapshot),
-        static_cast<unsigned>(reset_counter_value),
-        static_cast<double>(pos_xy.x()), static_cast<double>(pos_xy.y()),
-        static_cast<double>(pos_z),
-        static_cast<double>(q.w()), static_cast<double>(q.x()),
-        static_cast<double>(q.y()), static_cast<double>(q.z()));
+      // RCLCPP_DEBUG(
+      //   node_.get_logger(), *node_.get_clock(), 1000,
+      //   "vpe timer->update: allow_send_vio=1 offset_init=%d reset_counter=%u pos_ned_xy=[%.3f %.3f] pos_ned_z=%.3f q_ned=[%.3f %.3f %.3f %.3f]",
+      //   static_cast<int>(offset_initialized_snapshot),
+      //   static_cast<unsigned>(reset_counter_value),
+      //   static_cast<double>(pos_xy.x()), static_cast<double>(pos_xy.y()),
+      //   static_cast<double>(pos_z),
+      //   static_cast<double>(q.w()), static_cast<double>(q.x()),
+      //   static_cast<double>(q.y()), static_cast<double>(q.z()));
     }
     else {
       // RCLCPP_INFO_THROTTLE(
-      RCLCPP_DEBUG(
-        node_.get_logger(), *node_.get_clock(), 1000,
-        "vpe timer: allow_send_vio=0 -> skipping update (offset_init=%d)",
-        static_cast<int>(offset_initialized_snapshot));
+      // RCLCPP_DEBUG(
+      //   node_.get_logger(), *node_.get_clock(), 1000,
+      //   "vpe timer: allow_send_vio=0 -> skipping update (offset_init=%d)",
+      //   static_cast<int>(offset_initialized_snapshot));
     }
 
     // 2) Refresh offset timestamp after send
@@ -727,20 +727,20 @@ void VpePublisher::sendFallbackData()
     const auto q = fallback_measurement.attitude_quaternion.value();
 
     // RCLCPP_INFO_THROTTLE(
-    RCLCPP_DEBUG(
-      node_.get_logger(), *node_.get_clock(), 1000,
-      "vpe fallback payload: allow_send_vio=%d offset_init=%d has_last_pose=%d reset_counter=%u pos_ned_xy=[%.3f %.3f] pos_ned_z=%.3f q_ned=[%.3f %.3f %.3f %.3f] var_xy=[%.3f %.3f] var_z=%.3f",
-      static_cast<int>(allow_send_vio_),
-      static_cast<int>(offset_initialized_snapshot),
-      static_cast<int>(has_last_pose),
-      static_cast<unsigned>(reset_counter_value),
-      static_cast<double>(pos_xy.x()), static_cast<double>(pos_xy.y()),
-      static_cast<double>(pos_z),
-      static_cast<double>(q.w()), static_cast<double>(q.x()),
-      static_cast<double>(q.y()), static_cast<double>(q.z()),
-      static_cast<double>(fallback_measurement.position_xy_variance.value().x()),
-      static_cast<double>(fallback_measurement.position_xy_variance.value().y()),
-      static_cast<double>(fallback_measurement.position_z_variance.value_or(0.0f)));
+    // RCLCPP_DEBUG(
+    //   node_.get_logger(), *node_.get_clock(), 1000,
+    //   "vpe fallback payload: allow_send_vio=%d offset_init=%d has_last_pose=%d reset_counter=%u pos_ned_xy=[%.3f %.3f] pos_ned_z=%.3f q_ned=[%.3f %.3f %.3f %.3f] var_xy=[%.3f %.3f] var_z=%.3f",
+    //   static_cast<int>(allow_send_vio_),
+    //   static_cast<int>(offset_initialized_snapshot),
+    //   static_cast<int>(has_last_pose),
+    //   static_cast<unsigned>(reset_counter_value),
+    //   static_cast<double>(pos_xy.x()), static_cast<double>(pos_xy.y()),
+    //   static_cast<double>(pos_z),
+    //   static_cast<double>(q.w()), static_cast<double>(q.x()),
+    //   static_cast<double>(q.y()), static_cast<double>(q.z()),
+    //   static_cast<double>(fallback_measurement.position_xy_variance.value().x()),
+    //   static_cast<double>(fallback_measurement.position_xy_variance.value().y()),
+    //   static_cast<double>(fallback_measurement.position_z_variance.value_or(0.0f)));
 
     if (allow_send_vio_){
       update(fallback_measurement);
