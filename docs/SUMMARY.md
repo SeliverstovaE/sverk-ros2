@@ -17,7 +17,7 @@
     * [Radxa CM5](cm5_radxa_tutorial.md)
   * [Работа с полем ArUco-маркеров](setup_pc.md)
   * [Автоматическая проверка](automatic_check.md)
-  * [POSITION](flight_posion.md)
+  * [Режим POSITION](flight_posion.md)
 * [Автономный полёт](commands_offboard_flight.md)
   * [Команды (OFFBOARD)](offboard_control.md)
 * [База знаний](klowledge_base.md)
