@@ -11,7 +11,7 @@
     * [Калибровка аппаратуры управления](controller_settings.md)
     * [Настройка питания](charge_settings.md)
 * [Ручной полёт](visual_flight.md)
-* [Бортовой компьютер](raspberry.md)
+* [Работа с бортовый компьютером](raspberry.md)
   * [CM5](cm5.md)
     * [Rpi CM5](cm5_rpi_tutorial.md)
     * [Radxa CM5](cm5_radxa_tutorial.md)
