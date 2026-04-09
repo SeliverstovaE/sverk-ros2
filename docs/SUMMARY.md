@@ -4,9 +4,7 @@
 
 * [Настройка](preinstallation.md)
   * [Настройка аппаратуры управления](hardware_control.md)
-  * [CM5](cm5.md)
-    * [Rpi CM5](cm5_rpi_tutorial.md)
-    * [Radxa CM5](cm5_radxa_tutorial.md)
+  * [Установка образа]
   * [Подключение к QGroundControl](connect_wi-fi.md)
   * [Настройка полётного контроллера](setup_flight_controller.md)
     * [Загрузка параметров](upload_controller_parametrs.md)
@@ -28,3 +26,6 @@
     * Подключение к QGC по проводу
     * Прошивка
     * Калибровка ВМГ
+  * [CM5](cm5.md)
+    * [Rpi CM5](cm5_rpi_tutorial.md)
+    * [Radxa CM5](cm5_radxa_tutorial.md)
