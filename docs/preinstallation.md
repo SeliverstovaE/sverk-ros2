@@ -16,3 +16,5 @@
 
 
 * [Файл с параметрами](https://drive.google.com/file/d/1392MPugvBD1SA4eytPBsy4nv05whPwLh/view?usp=drive_link) полетного контроллера;
+
+* Все файлы закинуть на гит 
